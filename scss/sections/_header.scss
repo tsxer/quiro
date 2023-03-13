@@ -1,0 +1,165 @@
+.header {
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  &__logo {
+    @include text($ff, 24px, 28px, 600, $paragraph);
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__logo__mini {
+    display: none;
+    @include text($ff, 29px, 28px, 600, $paragraph);
+    @include mobile {
+      display: block;
+    }
+  }
+  &__search {
+    position: relative;
+    @include tablet {
+      display: none;
+    }
+    input {
+      background: $black;
+      display: inline-block;
+      border: 0;
+      border-radius: 50px;
+      padding: 13px 28px;
+      outline: none;
+      padding-right: 35px;
+      @include text($ff, 14px, 16px, 400, $white);
+      &::placeholder {
+        color: $white;
+      }
+    }
+    input::-webkit-search-cancel-button {
+      display: none;
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+    }
+  }
+  &__burger {
+    display: none;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 5;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    @include tablet {
+      display: flex;
+    }
+    span {
+      height: 3px;
+      width: 80%;
+      border-radius: 3px;
+      transform: scale(1);
+      background-color: $paragraph;
+      transition: $transition;
+    }
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      border-radius: 3px;
+      background-color: $paragraph;
+      transition: $transition;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+    &.active span {
+      transform: scale(0);
+    }
+    &.active::before {
+      top: 50%;
+      transform: rotate(-45deg) translate(0, -50%);
+    }
+    &.active::after {
+      bottom: 50%;
+      transform: rotate(45deg) translate(0, 50%);
+    }
+  }
+}
+.nav {
+  &__ul {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: $transition;
+    gap: 24px;
+    @include tablet {
+      position: fixed;
+      width: 25%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      overflow: auto;
+      background: $paragraph;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 5;
+      transition: $transition;
+      box-shadow: 3px 3px 8px 1px $black;
+      transform: translateX(-150%);
+      &.active {
+        transform: translateX(0);
+      }
+      .nav__a {
+        color: $grey;
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__a {
+    @include text($ff, 16px, 19px, 400, $black);
+    position: relative;
+    transition: $transition;
+    &::before {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 0;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -3px;
+      background: $primary;
+      transition: $transition;
+    }
+    &:hover {
+      color: $primary;
+    }
+    &.active {
+      color: $primary;
+      font-weight: 600;
+      &::before {
+        width: calc(100% - 10px);
+      }
+    }
+    &._active {
+      color: $primary;
+      font-weight: 600;
+      &::before {
+        width: calc(100% - 10px);
+      }
+    }
+  }
+}

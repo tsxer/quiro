@@ -1,0 +1,60 @@
+.join-section {
+  padding: 80px 214px 80px 227px;
+  background: $darkpurple;
+  border-radius: 10px;
+  @include tablet {
+    padding: 55px 150px;
+  }
+  @include tablet-small {
+    padding: 50px 50px;
+  }
+  @include mobile {
+    padding: 35px 20px;
+  }
+  &__title {
+    text-align: center;
+    margin-bottom: 47px;
+    @include text($ff, 36px, 42px, 700, $white);
+    @include tablet-small {
+      font-size: 30px;
+      margin-bottom: 35px;
+    }
+    @include mobile {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__form {
+    position: relative;
+    input {
+      display: inline-block;
+      border: none;
+      outline: none;
+      padding: 20px 180px 20px 30px;
+      width: 100%;
+      @include text($ff, 16px, 19px, 400, $black);
+      background: $terciary;
+      border-radius: 50px;
+      transition: $transition;
+      &::placeholder {
+        @include text($ff, 16px, 19px, 400, $darkgrey);
+      }
+    }
+    .submit-email {
+      background: $primary;
+      border-radius: 22px;
+      padding: 10px 24px;
+      @include text($ff, 20px, 23px, 600, $white);
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 14px;
+      border: 0;
+      cursor: pointer;
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+  }
+}

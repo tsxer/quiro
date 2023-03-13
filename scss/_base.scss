@@ -1,0 +1,74 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: $ff;
+}
+
+.container {
+  max-width: 1210px;
+  padding: 0 20px;
+  margin-inline: auto;
+}
+
+.title {
+  @include text($ff, 40px, 56px, 700, $paragraph);
+}
+
+.desc {
+  text-align: center;
+  @include text($ff, 16px, 19px, 400, $paragraph);
+}
+
+.btn {
+  transition: $transition;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+// .btn::after {
+//   content: "";
+//   display: inline-block;
+//   height: 100%;
+//   width: 100%;
+//   border-radius: 100px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   z-index: -1;
+//   transition: all 0.4s;
+// }
+
+// .btn::after {
+//   background-color: $primary;
+// }
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
