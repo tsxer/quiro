@@ -39,6 +39,7 @@ body {
 
 .btn {
   transition: $transition;
+  position: relative;
 }
 
 .btn:hover {
@@ -51,22 +52,22 @@ body {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-// .btn::after {
-//   content: "";
-//   display: inline-block;
-//   height: 100%;
-//   width: 100%;
-//   border-radius: 100px;
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   z-index: -1;
-//   transition: all 0.4s;
-// }
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
 
-// .btn::after {
-//   background-color: $primary;
-// }
+.btn::after {
+  background-color: $primary;
+}
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
